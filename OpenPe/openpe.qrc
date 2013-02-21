@@ -1,0 +1,23 @@
+<RCC>
+  <qresource prefix="OpenPE">
+    <file>Resources/disk.png</file>
+    <file>Resources/information.png</file>
+    <file>Resources/script_delete.png</file>
+    <file>Resources/status_busy.png</file>
+    <file>Resources/status_offline.png</file>
+    <file>Resources/add.png</file>
+    <file>Resources/page_paste.png</file>
+    <file>Resources/cross.png</file>
+    <file>Resources/bin_closed.png</file>
+    <file>Resources/accept.png</file>
+    <file>Resources/transmit_edit.png</file>
+    <file>Resources/script_error.png</file>
+    <file>Resources/script_gear.png</file>
+    <file>Resources/arrow_up.png</file>
+    <file>Resources/spam.png</file>
+    <file>Resources/stop.png</file>
+    <file>Resources/transmit_add.png</file>
+    <file>Resources/magnifier.png</file>
+    <file>Resources/arrow_up_down.png</file>
+  </qresource>
+</RCC>

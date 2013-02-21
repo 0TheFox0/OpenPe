@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QSpammerWindow</class>
+ <widget class="QDialog" name="QSpammerWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>507</width>
+    <height>213</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Spammer</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="openpe.qrc">
+    <normaloff>:/OpenPE/Resources/transmit_add.png</normaloff>:/OpenPE/Resources/transmit_add.png</iconset>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="4">
+    <widget class="QTextEdit" name="multi_pkt_txt"/>
+   </item>
+   <item row="1" column="0">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>273</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="1">
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>Send</string>
+     </property>
+     <property name="icon">
+      <iconset resource="openpe.qrc">
+       <normaloff>:/OpenPE/Resources/arrow_up.png</normaloff>:/OpenPE/Resources/arrow_up.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <widget class="QPushButton" name="spam_multi_btn">
+     <property name="text">
+      <string>Spam It!</string>
+     </property>
+     <property name="icon">
+      <iconset resource="openpe.qrc">
+       <normaloff>:/OpenPE/Resources/spam.png</normaloff>:/OpenPE/Resources/spam.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="3">
+    <widget class="QSpinBox" name="spam_delay">
+     <property name="maximum">
+      <number>5000</number>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="openpe.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>QSpammerWindow</receiver>
+   <slot>sendSlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>314</x>
+     <y>202</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>183</x>
+     <y>186</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spam_multi_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>QSpammerWindow</receiver>
+   <slot>spamSlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>405</x>
+     <y>192</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>252</x>
+     <y>200</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>sendSlot()</slot>
+  <slot>spamSlot()</slot>
+ </slots>
+</ui>

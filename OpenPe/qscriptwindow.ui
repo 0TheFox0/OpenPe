@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QScriptWindow</class>
+ <widget class="QWidget" name="QScriptWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>507</width>
+    <height>213</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Scripter</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="openpe.qrc">
+    <normaloff>:/OpenPE/Resources/script_gear.png</normaloff>:/OpenPE/Resources/script_gear.png</iconset>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="CodeEditor" name="sender_code"/>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QComboBox" name="script_Box"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Save</string>
+       </property>
+       <property name="icon">
+        <iconset resource="openpe.qrc">
+         <normaloff>:/OpenPE/Resources/disk.png</normaloff>:/OpenPE/Resources/disk.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Test</string>
+       </property>
+       <property name="icon">
+        <iconset resource="openpe.qrc">
+         <normaloff>:/OpenPE/Resources/script_error.png</normaloff>:/OpenPE/Resources/script_error.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="run_script_btn">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Run</string>
+       </property>
+       <property name="icon">
+        <iconset resource="openpe.qrc">
+         <normaloff>:/OpenPE/Resources/script_gear.png</normaloff>:/OpenPE/Resources/script_gear.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>CodeEditor</class>
+   <extends>QPlainTextEdit</extends>
+   <header>codeeditor.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="openpe.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>QScriptWindow</receiver>
+   <slot>saveSlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>293</x>
+     <y>195</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>277</x>
+     <y>-15</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>QScriptWindow</receiver>
+   <slot>testSlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>385</x>
+     <y>196</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>367</x>
+     <y>-2</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>run_script_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>QScriptWindow</receiver>
+   <slot>runSlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>473</x>
+     <y>196</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>-13</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>script_Box</sender>
+   <signal>activated(QString)</signal>
+   <receiver>QScriptWindow</receiver>
+   <slot>loadScript(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>137</x>
+     <y>194</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>183</x>
+     <y>-16</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>saveSlot()</slot>
+  <slot>testSlot()</slot>
+  <slot>runSlot()</slot>
+  <slot>loadScript(QString)</slot>
+ </slots>
+</ui>

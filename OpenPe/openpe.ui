@@ -1,0 +1,1234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>OpenPEClass</class>
+ <widget class="QMainWindow" name="OpenPEClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>446</width>
+    <height>571</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Renovatio PE by TheFox</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="openpe.qrc">
+    <normaloff>:/OpenPE/Resources/transmit_edit.png</normaloff>:/OpenPE/Resources/transmit_edit.png</iconset>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonIconOnly</enum>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QCheckBox" name="hook_chk">
+        <property name="toolTip">
+         <string>You need a bypass in order to log/block packets!</string>
+        </property>
+        <property name="text">
+         <string>Hook Send/Recv</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="show_Send_chk">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Show Send</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="show_Recv_chk">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Show Recv</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <item>
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>Ignore Mode:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="ignore_AsBlack_chk">
+        <property name="text">
+         <string>BlackList</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="ignore_AsWhite">
+        <property name="text">
+         <string>WhiteList</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="currentIndex">
+       <number>2</number>
+      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="icon">
+        <iconset resource="openpe.qrc">
+         <normaloff>:/OpenPE/Resources/arrow_up_down.png</normaloff>:/OpenPE/Resources/arrow_up_down.png</iconset>
+       </attribute>
+       <attribute name="title">
+        <string>Packet Flow</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QTreeWidget" name="flow_tree">
+          <property name="contextMenuPolicy">
+           <enum>Qt::ActionsContextMenu</enum>
+          </property>
+          <property name="rootIsDecorated">
+           <bool>true</bool>
+          </property>
+          <column>
+           <property name="text">
+            <string>Direction</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Ret. Adress</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Size</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Data</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="icon">
+        <iconset resource="openpe.qrc">
+         <normaloff>:/OpenPE/Resources/magnifier.png</normaloff>:/OpenPE/Resources/magnifier.png</iconset>
+       </attribute>
+       <attribute name="title">
+        <string>Log by opcode</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QSplitter" name="splitter_6">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QSplitter" name="splitter_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <widget class="QSplitter" name="splitter">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <widget class="QTreeWidget" name="recv_tree">
+             <property name="contextMenuPolicy">
+              <enum>Qt::ActionsContextMenu</enum>
+             </property>
+             <column>
+              <property name="text">
+               <string>Recv</string>
+              </property>
+             </column>
+            </widget>
+            <widget class="QTreeWidget" name="send_tree">
+             <property name="contextMenuPolicy">
+              <enum>Qt::ActionsContextMenu</enum>
+             </property>
+             <column>
+              <property name="text">
+               <string>Send</string>
+              </property>
+             </column>
+            </widget>
+           </widget>
+           <widget class="QTreeWidget" name="ignored_tree">
+            <property name="contextMenuPolicy">
+             <enum>Qt::ActionsContextMenu</enum>
+            </property>
+            <column>
+             <property name="text">
+              <string>Ignored</string>
+             </property>
+            </column>
+           </widget>
+          </widget>
+          <widget class="QSplitter" name="splitter_4">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <widget class="QPlainTextEdit" name="data_txt"/>
+           <widget class="QTextEdit" name="fomatted_text"/>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="icon">
+        <iconset resource="openpe.qrc">
+         <normaloff>:/OpenPE/Resources/transmit_add.png</normaloff>:/OpenPE/Resources/transmit_add.png</iconset>
+       </attribute>
+       <attribute name="title">
+        <string>Sender</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="0" colspan="2">
+           <widget class="QLineEdit" name="single_pkt_txt"/>
+          </item>
+          <item row="1" column="0">
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="1">
+           <widget class="QPushButton" name="send_single_btn">
+            <property name="text">
+             <string>Send</string>
+            </property>
+            <property name="icon">
+             <iconset resource="openpe.qrc">
+              <normaloff>:/OpenPE/Resources/arrow_up.png</normaloff>:/OpenPE/Resources/arrow_up.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QSplitter" name="splitter_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QWidget" name="layoutWidget">
+           <layout class="QGridLayout" name="gridLayout_2">
+            <item row="0" column="0" colspan="6">
+             <widget class="QTextEdit" name="multi_pkt_txt">
+              <property name="toolTip">
+               <string>Each packet in a new line!</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <spacer name="horizontalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="1" column="1">
+             <widget class="QPushButton" name="send_multi_btn">
+              <property name="text">
+               <string>Send</string>
+              </property>
+              <property name="icon">
+               <iconset resource="openpe.qrc">
+                <normaloff>:/OpenPE/Resources/arrow_up.png</normaloff>:/OpenPE/Resources/arrow_up.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QPushButton" name="spam_multi_btn">
+              <property name="text">
+               <string>Spam it!</string>
+              </property>
+              <property name="icon">
+               <iconset resource="openpe.qrc">
+                <normaloff>:/OpenPE/Resources/spam.png</normaloff>:/OpenPE/Resources/spam.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="4">
+             <widget class="QPushButton" name="more_spammer_btn">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="openpe.qrc">
+                <normaloff>:/OpenPE/Resources/add.png</normaloff>:/OpenPE/Resources/add.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="3">
+             <widget class="QSpinBox" name="spam_delay">
+              <property name="maximum">
+               <number>5000</number>
+              </property>
+              <property name="value">
+               <number>100</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="layoutWidget">
+           <layout class="QGridLayout" name="gridLayout_3">
+            <item row="0" column="0" colspan="11">
+             <widget class="CodeEditor" name="sender_code"/>
+            </item>
+            <item row="1" column="10">
+             <widget class="QPushButton" name="more_script_btn">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>28</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="openpe.qrc">
+                <normaloff>:/OpenPE/Resources/add.png</normaloff>:/OpenPE/Resources/add.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="9">
+             <widget class="QPushButton" name="run_script_btn">
+              <property name="text">
+               <string>Run</string>
+              </property>
+              <property name="icon">
+               <iconset resource="openpe.qrc">
+                <normaloff>:/OpenPE/Resources/script_gear.png</normaloff>:/OpenPE/Resources/script_gear.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="8">
+             <widget class="QPushButton" name="test_script_btn">
+              <property name="text">
+               <string>Test</string>
+              </property>
+              <property name="icon">
+               <iconset resource="openpe.qrc">
+                <normaloff>:/OpenPE/Resources/script_error.png</normaloff>:/OpenPE/Resources/script_error.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="7">
+             <widget class="QPushButton" name="save_script_Bnt">
+              <property name="text">
+               <string>Save</string>
+              </property>
+              <property name="icon">
+               <iconset resource="openpe.qrc">
+                <normaloff>:/OpenPE/Resources/disk.png</normaloff>:/OpenPE/Resources/disk.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" colspan="7">
+             <widget class="QComboBox" name="script_Box"/>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_4">
+       <attribute name="icon">
+        <iconset resource="openpe.qrc">
+         <normaloff>:/OpenPE/Resources/transmit_edit.png</normaloff>:/OpenPE/Resources/transmit_edit.png</iconset>
+       </attribute>
+       <attribute name="title">
+        <string>Editor</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="1" column="0">
+         <widget class="QGroupBox" name="groupBox">
+          <property name="title">
+           <string>Mode</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="0" column="0">
+            <widget class="QRadioButton" name="edit_block_chk">
+             <property name="text">
+              <string>Block it!</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <spacer name="horizontalSpacer_6">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="1">
+            <widget class="QRadioButton" name="edit_pattern_chk">
+             <property name="text">
+              <string>Mod it!</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QRadioButton" name="edit_script_chk">
+             <property name="text">
+              <string>Run a script</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QPushButton" name="edit_enable_btn">
+             <property name="text">
+              <string>Enable</string>
+             </property>
+             <property name="icon">
+              <iconset resource="openpe.qrc">
+               <normaloff>:/OpenPE/Resources/accept.png</normaloff>:/OpenPE/Resources/accept.png</iconset>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="1" rowspan="3">
+         <widget class="QTreeWidget" name="edits_tree">
+          <property name="contextMenuPolicy">
+           <enum>Qt::ActionsContextMenu</enum>
+          </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+          <column>
+           <property name="text">
+            <string>Header</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Direction</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Edit Type</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QGroupBox" name="groupBox">
+          <property name="title">
+           <string>Opcode</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_6">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>Opcode to edit:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <spacer name="horizontalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="opcode_edit_txt">
+             <property name="maxLength">
+              <number>4</number>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QRadioButton" name="edit_send_chk">
+             <property name="text">
+              <string>Send</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QRadioButton" name="edit_recv_chk">
+             <property name="text">
+              <string>Recv</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QSplitter" name="splitter_5">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QGroupBox" name="pattern_group">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="title">
+            <string>Pattern Modification</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <item>
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>From:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="patt_from_txt">
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use only one &amp;quot;?&amp;quot; to ignore that byte!&lt;/p&gt;&lt;p&gt;Use &amp;quot;...&amp;quot; to skip the rest of the packet!&lt;/p&gt;&lt;p&gt;Example:&lt;/p&gt;&lt;p&gt;Current Packet = 01 02 03 04 05 06&lt;/p&gt;&lt;p&gt;Pattern 1 =          01 02 03 =&amp;gt; this will be false!&lt;/p&gt;&lt;p&gt;Pattern 2 =          01 02 ... =&amp;gt; this will be true!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>To:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="patt_to_txt">
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use only one &amp;quot;?&amp;quot; to ignore that byte!&lt;/p&gt;&lt;p&gt;Use &amp;quot;...&amp;quot;in order to not cut off the packet!&lt;/p&gt;&lt;p&gt;Example:&lt;/p&gt;&lt;p&gt;Current Packet = 01 02 03 04 05 06 07 08 09&lt;/p&gt;&lt;p&gt;Pattern 1 = 01 AA BB =&amp;gt; Output packet will be 01 AA BB!&lt;/p&gt;&lt;p&gt;Pattern 2 = 01 AA BB ... =&amp;gt; Output packet will be 01 AA BB 04 05 06 07 08 09!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QGroupBox" name="script_group">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="title">
+            <string>Script to run</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="CodeEditor" name="edit_code"/>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>446</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <action name="actionDelete_Seleted_Edit">
+   <property name="icon">
+    <iconset resource="openpe.qrc">
+     <normaloff>:/OpenPE/Resources/bin_closed.png</normaloff>:/OpenPE/Resources/bin_closed.png</iconset>
+   </property>
+   <property name="text">
+    <string>Delete Seleted Edit</string>
+   </property>
+  </action>
+  <action name="actionClear_log">
+   <property name="icon">
+    <iconset resource="openpe.qrc">
+     <normaloff>:/OpenPE/Resources/bin_closed.png</normaloff>:/OpenPE/Resources/bin_closed.png</iconset>
+   </property>
+   <property name="text">
+    <string>Clear all logs</string>
+   </property>
+  </action>
+  <action name="actionCopy_packet">
+   <property name="icon">
+    <iconset resource="openpe.qrc">
+     <normaloff>:/OpenPE/Resources/page_paste.png</normaloff>:/OpenPE/Resources/page_paste.png</iconset>
+   </property>
+   <property name="text">
+    <string>Copy packet</string>
+   </property>
+  </action>
+  <action name="actionIgnore_opcode">
+   <property name="icon">
+    <iconset resource="openpe.qrc">
+     <normaloff>:/OpenPE/Resources/status_offline.png</normaloff>:/OpenPE/Resources/status_offline.png</iconset>
+   </property>
+   <property name="text">
+    <string>Ignore opcode</string>
+   </property>
+  </action>
+  <action name="actionBlock_opcode">
+   <property name="icon">
+    <iconset resource="openpe.qrc">
+     <normaloff>:/OpenPE/Resources/status_busy.png</normaloff>:/OpenPE/Resources/status_busy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Block opcode</string>
+   </property>
+  </action>
+  <action name="actionAdd_Ignore_opcode">
+   <property name="icon">
+    <iconset resource="openpe.qrc">
+     <normaloff>:/OpenPE/Resources/status_offline.png</normaloff>:/OpenPE/Resources/status_offline.png</iconset>
+   </property>
+   <property name="text">
+    <string>Add Ignore opcode</string>
+   </property>
+  </action>
+  <action name="actionDelete_Selected">
+   <property name="icon">
+    <iconset resource="openpe.qrc">
+     <normaloff>:/OpenPE/Resources/bin_closed.png</normaloff>:/OpenPE/Resources/bin_closed.png</iconset>
+   </property>
+   <property name="text">
+    <string>Delete Selected</string>
+   </property>
+  </action>
+  <action name="actionClear_this_log">
+   <property name="icon">
+    <iconset resource="openpe.qrc">
+     <normaloff>:/OpenPE/Resources/bin_closed.png</normaloff>:/OpenPE/Resources/bin_closed.png</iconset>
+   </property>
+   <property name="text">
+    <string>Clear this log</string>
+   </property>
+  </action>
+  <action name="actionPacket_Info">
+   <property name="icon">
+    <iconset resource="openpe.qrc">
+     <normaloff>:/OpenPE/Resources/information.png</normaloff>:/OpenPE/Resources/information.png</iconset>
+   </property>
+   <property name="text">
+    <string>Packet Info</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>CodeEditor</class>
+   <extends>QPlainTextEdit</extends>
+   <header>codeeditor.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="openpe.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>edit_enable_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>addEdit()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>104</x>
+     <y>274</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>504</x>
+     <y>151</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>edit_block_chk</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>editChanged(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>104</x>
+     <y>242</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>193</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>edit_pattern_chk</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>editChanged(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>166</x>
+     <y>242</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>182</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>edit_script_chk</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>editChanged(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>252</x>
+     <y>242</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>170</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>edits_tree</sender>
+   <signal>itemActivated(QTreeWidgetItem*,int)</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>editActivated(QTreeWidgetItem*,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>423</x>
+     <y>214</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>504</x>
+     <y>203</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionDelete_Seleted_Edit</sender>
+   <signal>triggered()</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>deleteEdit()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>297</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>send_single_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>senderSlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>422</x>
+     <y>170</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>504</x>
+     <y>48</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hook_chk</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>globalSettings(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>59</x>
+     <y>44</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>188</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>show_Send_chk</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>globalSettings(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>145</x>
+     <y>38</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>142</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>show_Recv_chk</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>globalSettings(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>235</x>
+     <y>38</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>188</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ignore_AsBlack_chk</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>globalSettings(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>143</x>
+     <y>76</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>370</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionAdd_Ignore_opcode</sender>
+   <signal>triggered()</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>contextMenuSlot_packet()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>296</x>
+     <y>297</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionBlock_opcode</sender>
+   <signal>triggered()</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>contextMenuSlot_packet()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>296</x>
+     <y>297</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionClear_log</sender>
+   <signal>triggered()</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>contextMenuSlot_delete()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>296</x>
+     <y>297</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionCopy_packet</sender>
+   <signal>triggered()</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>contextMenuSlot_packet()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>296</x>
+     <y>297</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionDelete_Selected</sender>
+   <signal>triggered()</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>contextMenuSlot_delete()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>296</x>
+     <y>297</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionIgnore_opcode</sender>
+   <signal>triggered()</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>contextMenuSlot_packet()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>296</x>
+     <y>297</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionClear_this_log</sender>
+   <signal>triggered()</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>contextMenuSlot_delete()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>296</x>
+     <y>297</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>test_script_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>scriptSlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>307</x>
+     <y>547</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>426</x>
+     <y>589</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>run_script_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>scriptSlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>388</x>
+     <y>547</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>488</x>
+     <y>591</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>more_spammer_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>expandSlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>416</x>
+     <y>359</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>504</x>
+     <y>348</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>more_script_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>expandSlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>422</x>
+     <y>547</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>504</x>
+     <y>560</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>script_Box</sender>
+   <signal>activated(QString)</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>loadScript(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>145</x>
+     <y>545</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>208</x>
+     <y>588</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>save_script_Bnt</sender>
+   <signal>clicked()</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>save_senderCode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>226</x>
+     <y>547</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>114</x>
+     <y>589</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>flow_tree</sender>
+   <signal>itemActivated(QTreeWidgetItem*,int)</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>itemActivated(QTreeWidgetItem*,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>149</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>416</x>
+     <y>-7</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>recv_tree</sender>
+   <signal>itemActivated(QTreeWidgetItem*,int)</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>itemActivated(QTreeWidgetItem*,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>128</x>
+     <y>201</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>2</x>
+     <y>319</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>send_tree</sender>
+   <signal>itemActivated(QTreeWidgetItem*,int)</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>itemActivated(QTreeWidgetItem*,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>285</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>503</x>
+     <y>304</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionPacket_Info</sender>
+   <signal>triggered()</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>pktInfoSlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>222</x>
+     <y>285</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>send_multi_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>senderSlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>203</x>
+     <y>356</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>4</x>
+     <y>345</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spam_multi_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>OpenPEClass</receiver>
+   <slot>senderSlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>280</x>
+     <y>342</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1</x>
+     <y>309</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>addEdit()</slot>
+  <slot>editChanged(bool)</slot>
+  <slot>editActivated(QTreeWidgetItem*,int)</slot>
+  <slot>deleteEdit()</slot>
+  <slot>senderSlot()</slot>
+  <slot>globalSettings(bool)</slot>
+  <slot>contextMenuSlot_delete()</slot>
+  <slot>contextMenuSlot_packet()</slot>
+  <slot>scriptSlot()</slot>
+  <slot>expandSlot()</slot>
+  <slot>loadScript(QString)</slot>
+  <slot>save_senderCode()</slot>
+  <slot>itemActivated(QTreeWidgetItem*,int)</slot>
+  <slot>pktInfoSlot()</slot>
+ </slots>
+</ui>

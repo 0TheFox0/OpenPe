@@ -1,0 +1,65 @@
+//Classes
+"ThisPacket"
+{
+	     int  Size        ()               : "Return th size of this packet."
+	     int  ReadByte    (int offset)     : "Return the byte on 'offset position', this is 0 based."
+         int  ReadWord    (int offset)     : "Return the word on 'offset position', this is 0 based."
+unsigned long ReadDWord   (int offset)     : "Return the dword on 'offset position', this is 0 based."
+		 void Block       ()               : "Block this packet."
+		 bool CheckPattern(QString pattern): "Compares the packet with the verification pattern, user is allowed to skip some bytes using '?' or skip length restriction using '...' at the end of the pattern."
+		 void Mod         (QString pattern): "Modify this packet consistent with the pattern, user can copy original bytes usin '?' or copy all last bytes with '...'at the en of pattern"; 
+}
+
+"Counters"
+{
+	void Create  (QString name,int value);	:"Create a new counter named 'name' with 'value' as initial value"
+	void Create  (QString name);			:"Create a new counter named 'name' with 0 as value"
+	void Delete  (QString name);			:"Delete the counter named 'name'"
+	int  GetValue(QString name);			:"Return the value of the counter named 'name'"
+	void Inc     (QString name);			:"Increase the value of the counter named 'name' on 1,is like counter++('++' not suported yet)"
+	void Dec     (QString name);			:"Decrease the value of the counter named 'name' on 1,is like counter--"('--' not suported yet)
+	void Set     (QString name,int newValue):"Set the value of the counter named 'name' on 'newValue'"
+	void Reset   (QString name);			:"Set the value of the counter named 'name' on 0 , it's like doing Set(name,0)"
+}
+
+"Flags"
+{
+	void Create   (QString name,bool value);   :"Create a new flag named 'name' with 'value' as initial value"
+	void Create   (QString name);			   :"Create a new counter named 'name' with false as value"
+	void Delete   (QString name);			   :"Delete the flag named 'name'"
+	bool GetStatus(QString name);			   :"Return the value of the flag named 'name'"
+	void SetStatus(QString name, bool newValue):"Set the value of the flag named 'name' on 'newValue'"
+	void Toggle   (QString name);			   :"Toggle the value of the counter named 'name' (flag.value = !flag.value)"
+}
+
+"BlackList"
+{
+	void Block     (QString direction,unsigned short header):"Block a single packet whit header 'header', direction string supported = {"In","Out"}"
+	void UnBlock   (QString direction,unsigned short header):"Unblock a single packet whit header 'header', direction string supported = {"In","Out"}"
+	void UnBlockAll();										:"Remove al blocked packet from the blacklist"
+}
+
+"Converter"
+{
+	QString ToHexString   (int value, QString type):"Return a string with the hexadecimal value of 'value', 'type' supported = {"byte","word","dword"}"
+	QString ToMapleString (QString String);		   :"Return a string that represents the equivalent MapleString bytes.Example: ToMapleString("hi") = "02 00 68 69". "
+	QString ToLittleEndian(QString HexString);	   :"Return a little endian string equivalent of 'HexString'. Example: ToLittleEndian("AA BB CC") = "CC BB AA". "
+}
+	 
+// Functions
+
+ShowMessage (QString Title , QString Text) : Show a MessageBox with 'Title' as title and 'Text' as text;
+
+Format (Qstring format, va_list args) : c++ sprint like function, example Format("%08X",10) returns "0000000A".
+
+SendPacket/RecvPacket (QString packet) : Send/Recv a packet with 'packet' as data. User can use * to randomize bytes.
+
+SendPacket/RecvPacket (QString packet, int SleepTime) : Send/Recv a packet with 'packet' as data. User can use * to randomize bytes.After that, the script will sleep 'SleepTime' milliseconds.
+
+SendPacket/RecvPacket (QString packet, int SleepTime , int repeatTimes) : Send/Recv a packet with 'packet' as data. User can use * to randomize bytes.After that, the script will sleep 'SleepTime' milliseconds.This process will be repeated 'repeatTimes'.
+
+Sleep (int time) : script will sleep 'time' milliseconds.
+
+ReadPointer (unsigned long Base, int Offset) : Read the pointer...
+
+WritePointer (unsigned long Base, int Offset, int value) : Write 'value' to the pointer
